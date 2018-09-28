@@ -1,11 +1,3 @@
-//
-//  AtbashCipher.swift
-//  SpyApp
-//
-//  Created by Juan Angeles on 9/15/18.
-//  Copyright © 2018 Axel Ancona Esselmann. All rights reserved.
-//
-
 import Foundation
 
 struct AtbashCipher: Cipher {

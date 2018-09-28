@@ -1,11 +1,3 @@
-//
-//  VigenereCipher.swift
-//  SpyApp
-//
-//  Created by Juan Angeles on 9/15/18.
-//  Copyright © 2018 Axel Ancona Esselmann. All rights reserved.
-//
-
 import Foundation
 
 struct VigenereCipher: Cipher {
@@ -13,13 +5,15 @@ struct VigenereCipher: Cipher {
     func encode(_ plaintext: String, secret: String) -> String? {
         //maybe use guard????
         var encoded:String = ""
-        if plaintext.range(of: "[^a-zA-Z]", options: .regularExpression) != nil && plaintext != "" {
-            encoded = "Input MUST be Alphabetic."
-            return encoded
-        }
-        if secret.range(of: "[^a-zA-Z]", options: .regularExpression) != nil && secret != "" {
+        if plaintext.range(of: "[^a-zA-Z]", options: .regularExpression) != nil || plaintext == "" {
+            //encoded = "Input MUST be Alphabetic."
             return nil
         }
+        if secret.range(of: "[^a-zA-Z]", options: .regularExpression) != nil || secret == "" {
+            //encoded = "Key MUST be Alphabetic."
+            return nil
+        }
+        
         var key:String = ""
         var cnt = 0
         for _ in 0..<plaintext.count{
